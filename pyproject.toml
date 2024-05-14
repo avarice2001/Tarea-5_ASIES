@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "tarea-5-asies"
+version = "0.1.0"
+description = ""
+authors = ["Aldo Yérico Mendoza Cotera <96565198+avarice2001@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyter-book = "^1.0.0"
+ipykernel = "^6.29.4"
+ghp-import = "^2.1.0"
+pandas = "^2.2.2"
+pulp = "^2.8.0"
+numpy = "^1.26.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
