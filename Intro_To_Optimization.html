@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to Optimization for Decision Making &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Intro_To_Optimization';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Optimization for Decision Making</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIntro_To_Optimization.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Intro_To_Optimization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Optimization for Decision Making</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Optimization for Decision Making</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-maximization-minimization">Part 1: Maximization/Minimization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-multicriteria-decision-making">Part 2: Multicriteria Decision-Making</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-ficticio">Ejercicio ficticio</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <img src="https://i.imgur.com/6U6q5jQ.png"/>
+<hr class="docutils" />
+<p><a id='home'></a></p>
+<a target="_blank" href="https://colab.research.google.com/github/SocialAnalytics-StrategicIntelligence/introOptimization/blob/main/Intro_To_Optimization.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-optimization-for-decision-making">
+<h1>Introduction to Optimization for Decision Making<a class="headerlink" href="#introduction-to-optimization-for-decision-making" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://docs.google.com/presentation/d/e/2PACX-1vQHq0p2eTmxRWJjDmo1mUmdarYgIrEew4ieiVbIGQy-D_CyBw5rbbRUlRxwLKKaVQpRV9Hs8MGnz0X2/embed?start=false&amp;loop=false&amp;delayms=3000&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;960&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;569&quot;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">mozallowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">webkitallowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQHq0p2eTmxRWJjDmo1mUmdarYgIrEew4ieiVbIGQy-D_CyBw5rbbRUlRxwLKKaVQpRV9Hs8MGnz0X2/embed?start=false&loop=false&delayms=3000" frameborder="1" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-1-maximization-minimization">
+<h1>Part 1: Maximization/Minimization<a class="headerlink" href="#part-1-maximization-minimization" title="Link to this heading">#</a></h1>
+<p>Please, go to your <em>environment</em> in Anacoda Navigator to install <strong>glpk</strong> and <strong>pulp</strong>  before runing the codes below.
+Then, call the library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">show</span> <span class="n">glpk</span> <span class="n">pulp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: Package(s) not found: glpk</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: PuLP
+Version: 2.8.0
+Summary: PuLP is an LP modeler written in python. PuLP can generate MPS or LP files and call GLPK, COIN CLP/CBC, CPLEX, and GUROBI to solve linear problems.
+Home-page: https://github.com/coin-or/pulp
+Author: J.S. Roy and S.A. Mitchell and F. Peschiera
+Author-email: pulp@stuartmitchell.com
+License: 
+Location: /home/codespace/.cache/pypoetry/virtualenvs/tarea-5-asies-gatVDPia-py3.10/lib/python3.10/site-packages
+Requires: 
+Required-by: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pulp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pulp in /home/codespace/.cache/pypoetry/virtualenvs/tarea-5-asies-gatVDPia-py3.10/lib/python3.10/site-packages (2.8.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pulp</span> <span class="k">as</span> <span class="nn">pp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Initialize the MODEL</strong>: just write the name and declare if it is maximization or minimization problem type.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">LpProblem</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;refinery-problem&#39;</span><span class="p">,</span> <span class="c1"># just the name</span>
+                     <span class="n">sense</span><span class="o">=</span><span class="n">pp</span><span class="o">.</span><span class="n">LpMaximize</span><span class="p">)</span> <span class="c1"># type of problem</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Declare the VARIABLES</strong>: The refinery model consists of these <em>variables</em>:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># how much gas?</span>
+<span class="n">Gas</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">LpVariable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Gas&quot;</span><span class="p">,</span>  <span class="c1"># just the name</span>
+                    <span class="n">lowBound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># ensure non-negativity</span>
+                    <span class="n">cat</span><span class="o">=</span><span class="s1">&#39;Continuous&#39;</span><span class="p">)</span> <span class="c1"># here: you accept decimal values</span>
+
+<span class="c1"># how much oil?</span>
+<span class="n">Oil</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">LpVariable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Oil&quot;</span><span class="p">,</span>
+                 <span class="n">lowBound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">cat</span><span class="o">=</span><span class="s1">&#39;Continuous&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Create function to OPTIMIZE</strong>: The function is just the linear combination of the variables and their <em>given coefficients</em>_:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GasCoeff</span><span class="o">=</span><span class="mf">1.9</span>
+<span class="n">OilCoeff</span><span class="o">=</span><span class="mf">1.5</span>
+<span class="n">obj_func</span> <span class="o">=</span> <span class="n">GasCoeff</span><span class="o">*</span><span class="n">Gas</span> <span class="o">+</span> <span class="n">OilCoeff</span><span class="o">*</span><span class="n">Oil</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Represent the constraints</strong>: These are the rules the model (set of variables) must obey:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SUBJECT TO:</span>
+<span class="n">C1</span><span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">LpConstraint</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Gas Constraint&#39;</span><span class="p">,</span>   <span class="c1"># just the name</span>
+                    <span class="n">e</span><span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">Gas</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">Oil</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># linear combination of constraint and rhs</span>
+                    <span class="n">sense</span><span class="o">=</span><span class="n">pp</span><span class="o">.</span><span class="n">LpConstraintGE</span><span class="p">)</span> <span class="c1"># &#39;rule&#39; &gt;= 0 (LpConstraintGE)</span>
+<span class="n">C2</span><span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">LpConstraint</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Oil Constraint&#39;</span><span class="p">,</span>
+                    <span class="n">e</span><span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">Oil</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="mi">3000000</span><span class="p">,</span>
+                    <span class="n">sense</span><span class="o">=</span><span class="n">pp</span><span class="o">.</span><span class="n">LpConstraintGE</span><span class="p">)</span> <span class="c1"># &#39;rule&#39; &gt;= 3000000 (LpConstraintGE)</span>
+<span class="n">C3</span><span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">LpConstraint</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Demand Constraint&#39;</span><span class="p">,</span>
+                    <span class="n">e</span><span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="n">Gas</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="mi">6400000</span><span class="p">,</span>
+                    <span class="n">sense</span><span class="o">=</span><span class="n">pp</span><span class="o">.</span><span class="n">LpConstraintLE</span><span class="p">,</span> <span class="p">)</span><span class="c1"># &#39;rule&#39; &lt;= 6400000 (LpConstraintLE)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Build MODEL</strong>: Here you add (i) the objective function, and (ii) all the constraints:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">+=</span> <span class="n">obj_func</span>
+<span class="n">model</span> <span class="o">+=</span> <span class="n">C1</span>
+<span class="n">model</span> <span class="o">+=</span> <span class="n">C2</span>
+<span class="n">model</span> <span class="o">+=</span> <span class="n">C3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p><strong>Solve the MODEL</strong>: Notice we are not using the <em>default solver</em>, we are explicitly usig <strong>COIN_CMD</strong>:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solver_list</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">listSolvers</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solver_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;GLPK_CMD&#39;, &#39;PYGLPK&#39;, &#39;CPLEX_CMD&#39;, &#39;CPLEX_PY&#39;, &#39;GUROBI&#39;, &#39;GUROBI_CMD&#39;, &#39;MOSEK&#39;, &#39;XPRESS&#39;, &#39;XPRESS&#39;, &#39;XPRESS_PY&#39;, &#39;PULP_CBC_CMD&#39;, &#39;COIN_CMD&#39;, &#39;COINMP_DLL&#39;, &#39;CHOCO_CMD&#39;, &#39;MIPCL_CMD&#39;, &#39;SCIP_CMD&#39;, &#39;FSCIP_CMD&#39;, &#39;SCIP_PY&#39;, &#39;HiGHS&#39;, &#39;HiGHS_CMD&#39;, &#39;COPT&#39;, &#39;COPT_DLL&#39;, &#39;COPT_CMD&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solverToUse</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">COIN_CMD</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;D:/2024-1/Herramientas cuantitativas/Tarea 5/bin/cbc.exe&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> 
+<span class="n">model</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solverToUse</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">PulpSolverError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">solverToUse</span> <span class="o">=</span> <span class="n">pp</span><span class="o">.</span><span class="n">COIN_CMD</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;D:/2024-1/Herramientas cuantitativas/Tarea 5/bin/cbc.exe&quot;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> 
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">model</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">solverToUse</span><span class="p">);</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/tarea-5-asies-gatVDPia-py3.10/lib/python3.10/site-packages/pulp/pulp.py:1883,</span> in <span class="ni">LpProblem.solve</span><span class="nt">(self, solver, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span> <span class="c1"># time it</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span> <span class="bp">self</span><span class="o">.</span><span class="n">startClock</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1883</span> <span class="n">status</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">actualSolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span> <span class="bp">self</span><span class="o">.</span><span class="n">stopClock</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span> <span class="bp">self</span><span class="o">.</span><span class="n">restoreObjective</span><span class="p">(</span><span class="n">wasNone</span><span class="p">,</span> <span class="n">dummyVar</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/tarea-5-asies-gatVDPia-py3.10/lib/python3.10/site-packages/pulp/apis/coin_api.py:112,</span> in <span class="ni">COIN_CMD.actualSolve</span><span class="nt">(self, lp, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">def</span> <span class="nf">actualSolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lp</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Solve a well formulated lp problem&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">112</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">solve_CBC</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/.cache/pypoetry/virtualenvs/tarea-5-asies-gatVDPia-py3.10/lib/python3.10/site-packages/pulp/apis/coin_api.py:121,</span> in <span class="ni">COIN_CMD.solve_CBC</span><span class="nt">(self, lp, use_mps)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Solve a MIP problem using CBC&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">executable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">121</span>     <span class="k">raise</span> <span class="n">PulpSolverError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span>         <span class="sa">f</span><span class="s2">&quot;Pulp: cannot execute </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2"> cwd: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span> <span class="n">tmpLp</span><span class="p">,</span> <span class="n">tmpMps</span><span class="p">,</span> <span class="n">tmpSol</span><span class="p">,</span> <span class="n">tmpMst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_tmp_files</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>     <span class="n">lp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;lp&quot;</span><span class="p">,</span> <span class="s2">&quot;mps&quot;</span><span class="p">,</span> <span class="s2">&quot;sol&quot;</span><span class="p">,</span> <span class="s2">&quot;mst&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span> <span class="k">if</span> <span class="n">use_mps</span><span class="p">:</span>
+
+<span class="ne">PulpSolverError</span>: Pulp: cannot execute D:/2024-1/Herramientas cuantitativas/Tarea 5/bin/cbc.exe cwd: /workspaces/Tarea-5_ASIES/tarea5
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can create a summary like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">Results</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Model Status&quot;</span><span class="p">:</span><span class="n">pp</span><span class="o">.</span><span class="n">LpStatus</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">status</span><span class="p">]}</span>
+<span class="n">Results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;Optimal Solution&quot;</span><span class="p">:</span><span class="n">pp</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">objective</span><span class="p">)})</span>
+<span class="n">Results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">varValue</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">variables</span><span class="p">()})</span>
+<span class="n">Results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Model Status&#39;: &#39;Optimal&#39;,
+ &#39;Optimal Solution&#39;: 16960000.0,
+ &#39;Gas&#39;: 6400000.0,
+ &#39;Oil&#39;: 3200000.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#or</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">Results</span><span class="p">,</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Model Status&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:,}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_17535">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_17535_level0_col0" class="col_heading level0 col0" >Optimal Solution</th>
+      <th id="T_17535_level0_col1" class="col_heading level0 col1" >Gas</th>
+      <th id="T_17535_level0_col2" class="col_heading level0 col2" >Oil</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >Model Status</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+      <th class="blank col2" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_17535_level0_row0" class="row_heading level0 row0" >Optimal</th>
+      <td id="T_17535_row0_col0" class="data row0 col0" >16,960,000.0</td>
+      <td id="T_17535_row0_col1" class="data row0 col1" >6,400,000.0</td>
+      <td id="T_17535_row0_col2" class="data row0 col2" >3,200,000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="alert-success">
+<p><strong>Exercise: The diet problem</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://docs.google.com/presentation/d/e/2PACX-1vTSq9X74urGAB_5n_MIJ9ZGIboKSvBdokVTBXVLh_qqZnmLRTJioOF431Rzys3Qi9UaFwWXjeq6Wmd5/embed?start=false&amp;loop=false&amp;delayms=3000&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;960&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;569&quot;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">mozallowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">webkitallowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTSq9X74urGAB_5n_MIJ9ZGIboKSvBdokVTBXVLh_qqZnmLRTJioOF431Rzys3Qi9UaFwWXjeq6Wmd5/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-2-multicriteria-decision-making">
+<h1>Part 2: Multicriteria Decision-Making<a class="headerlink" href="#part-2-multicriteria-decision-making" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://docs.google.com/presentation/d/e/2PACX-1vR7GL_wF1eKRO0JgEUyIx5cxXUhTQ8ZM4F3AE1MLr7GYG33dwEobrLo6O2MaV2d7Cv47TaTgHghkhrV/embed?start=false&amp;loop=false&amp;delayms=3000&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;960&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;569&quot;</span> <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">mozallowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="na">webkitallowfullscreen</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7GL_wF1eKRO0JgEUyIx5cxXUhTQ8ZM4F3AE1MLr7GYG33dwEobrLo6O2MaV2d7Cv47TaTgHghkhrV/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div></div>
+</div>
+<p>The following code requires the folder <strong>ahp</strong>, which you have to download from <a class="reference external" href="https://github.com/gprzy/ahp">here</a>, or from <a class="reference external" href="https://github.com/SocialAnalytics-StrategicIntelligence/introOptimization/raw/main/ahp.zip">here</a>. Make sure the folder with the two <strong>.py</strong> files are in this notebook. You need pandas and numpy previously installed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calling the function</span>
+<span class="kn">from</span> <span class="nn">ahp.ahp</span> <span class="kn">import</span> <span class="n">AHP</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I have previously prepared the pairwise comparisons:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">pairwise_age</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_experience</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;experience&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_education</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_charisma</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;charisma&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_criteria</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;criteria&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Open the <em>pairwise_criteria</em> to check the order of columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairwise_criteria</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Experience</th>
+      <th>Education</th>
+      <th>Charisma</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Experience</th>
+      <td>1.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Education</th>
+      <td>0.250000</td>
+      <td>1.000000</td>
+      <td>0.333333</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Charisma</th>
+      <td>0.333333</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>0.142857</td>
+      <td>0.333333</td>
+      <td>0.200000</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Use the same order here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># follow the same order as the criteria</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">pairwise_experience</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_education</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_charisma</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_age</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_criteria</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Time to fit the AHP model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ahp</span> <span class="o">=</span> <span class="n">AHP</span><span class="p">()</span>
+<span class="n">ahp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You get the solution:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Solution</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">pairwise_charisma</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">Solution</span><span class="p">[</span><span class="s1">&#39;Score&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">ahp</span><span class="o">.</span><span class="n">classificate</span><span class="p">()</span>
+<span class="n">Solution</span><span class="p">[</span><span class="s1">&#39;Ranking&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Solution</span><span class="o">.</span><span class="n">Score</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Solution</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Score</th>
+      <th>Ranking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tom</th>
+      <td>0.359067</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Dick</th>
+      <td>0.488307</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Harry</th>
+      <td>0.152626</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="alert-success">
+<p><strong>Exercise: Choosing a country for a Master Program</strong></p>
+<ul class="simple">
+<li><p>Join 3 or 4 people from this course (or other friends if needed).</p></li>
+<li><p>If you have the criteria: cost of living, language difficulty, possibilities to get a job in that country</p></li>
+<li><p>If you have the alternatives: Brazil, Spain, USA, England, France</p></li>
+<li><p>Create an AHP model and get the ranking.</p></li>
+</ul>
+<p>You can follow this <a class="reference external" href="https://en.wikipedia.org/wiki/Analytic_hierarchy_process_%E2%80%93_leader_example">example</a>.
+If you have a better idea, you can use it instead.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ejercicio-ficticio">
+<h1>Ejercicio ficticio<a class="headerlink" href="#ejercicio-ficticio" title="Link to this heading">#</a></h1>
+<p>El ejercicio ficticio que he elaborada trata de un proceso de selección en donde tres candidatos son finalistas: Pedro, Miguel y Aldo. Estos candidatos estan luchando por quién ira de intercambio a otro país en base a tres criterios: nivel económico, nivel de lenguaje (inglés) y el promedio final en sus calificaciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">pairwise_age_exercise</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables_exercise.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_economy_exercise</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables_exercise.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;economy&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_language_exercise</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables_exercise.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;language&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_score_exercise</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables_exercise.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pairwise_criteria_exercise</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;ahp_tables_exercise.xlsx&quot;</span><span class="p">,</span><span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;criteria&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairwise_criteria_exercise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Economy</th>
+      <th>Language</th>
+      <th>Score</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Economy</th>
+      <td>1.000000</td>
+      <td>7.000000</td>
+      <td>3.000000</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Language</th>
+      <td>0.142857</td>
+      <td>1.000000</td>
+      <td>0.333333</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Score</th>
+      <td>0.333333</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>0.125000</td>
+      <td>0.333333</td>
+      <td>0.200000</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_exercise</span> <span class="o">=</span> <span class="p">[</span><span class="n">pairwise_economy_exercise</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_language_exercise</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_score_exercise</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_age_exercise</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+        <span class="n">pairwise_criteria_exercise</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ahp</span> <span class="o">=</span> <span class="n">AHP</span><span class="p">()</span>
+<span class="n">ahp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_exercise</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Solution_exercise</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">pairwise_economy_exercise</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">Solution_exercise</span><span class="p">[</span><span class="s1">&#39;Score&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">ahp</span><span class="o">.</span><span class="n">classificate</span><span class="p">()</span>
+<span class="n">Solution_exercise</span><span class="p">[</span><span class="s1">&#39;Ranking&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">Solution_exercise</span><span class="o">.</span><span class="n">Score</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">Solution_exercise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Score</th>
+      <th>Ranking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pedro</th>
+      <td>0.273522</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>Miguel</th>
+      <td>0.483984</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Aldo</th>
+      <td>0.242494</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction to Optimization for Decision Making</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-maximization-minimization">Part 1: Maximization/Minimization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-multicriteria-decision-making">Part 2: Multicriteria Decision-Making</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-ficticio">Ejercicio ficticio</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

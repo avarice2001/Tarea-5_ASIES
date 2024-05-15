@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cbc &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Intro_To_Optimization.html">Introduction to Optimization for Decision Making</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/README.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cbc</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite">CITE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-build-status">CURRENT BUILD STATUS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">DOWNLOAD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image">Docker image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binaries">Binaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-source">BUILDING from source</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-coinbrew">Using <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#without-coinbrew-expert-users">Without <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code> (Expert users)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-microsoft-visual-studio">With Microsoft Visual Studio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doxygen-documentation">Doxygen Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">DOCUMENTATION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-links">Project Links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changelog">CHANGELOG</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cbc">
+<h1>Cbc<a class="headerlink" href="#cbc" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.coin-or.org"><img alt="A COIN-OR Project" src="https://coin-or.github.io/coin-or-badge.png" /></a></p>
+<p><a class="reference external" href="https://github.com/coin-or/Cbc/releases"><img alt="Latest Release" src="https://img.shields.io/github/v/release/coin-or/Cbc?sort=semver" /></a></p>
+<p><em>This file is auto-generated from <a class="reference internal" href="#.coin-or/config.yml"><span class="xref myst">config.yml</span></a> using the
+<a class="reference internal" href="#.coin-or/generate_readme"><span class="xref myst">generate_readme</span></a> script.
+To make changes, please edit <a class="reference internal" href="#.coin-or/config.yml"><span class="xref myst">config.yml</span></a> or the generation script.</em></p>
+<p>Cbc (<em>C</em>oin-or <em>b</em>ranch and <em>c</em>ut) is an open-source mixed integer linear programming solver written in C++.
+It can be used as a callable library or using a stand-alone executable.
+It can be called through</p>
+<ul class="simple">
+<li><p>AIMMS (via the <a class="reference external" href="https://github.com/coin-or/AIMMSlinks">AIMMSlinks</a> project),</p></li>
+<li><p>AMPL (natively),</p></li>
+<li><p><a class="reference external" href="https://github.com/coin-or/Cmpl">CMPL</a>,</p></li>
+<li><p><a class="reference external" href="https://github.com/coin-or/CyLP">CyLP</a>,</p></li>
+<li><p>GAMS (through the <a class="reference external" href="https://github.com/coin-or/GAMSlinks">GAMSlinks</a> project),</p></li>
+<li><p><a class="reference external" href="https://github.com/JuliaOpt/JuMP.jl">JuMP</a>,</p></li>
+<li><p>Mathematica,</p></li>
+<li><p><a class="reference external" href="http://www.minizinc.org/">MiniZinc</a>,</p></li>
+<li><p>MPL (through the <a class="reference external" href="https://github.com/coin-or/CoinMP">CoinMP</a> project),</p></li>
+<li><p><a class="reference external" href="http://opensolver.org">OpenSolver for Excel</a>,</p></li>
+<li><p><a class="reference external" href="https://developers.google.com/optimization">Google’s or-tools</a>,</p></li>
+<li><p><a class="reference external" href="https://github.com/coin-or/PuLP">PuLP</a>,</p></li>
+<li><p><a class="reference external" href="https://github.com/coin-or/python-mip">python-mip</a>, and</p></li>
+<li><p>Python (e.g., <a class="reference external" href="https://pypi.org/project/cbcpy">cbcpy</a>), among others.</p></li>
+</ul>
+<p>Binaries for most platforms are available for download from
+<a class="reference external" href="https://bintray.com/coin-or/download/Cbc">Bintray</a>. AMPL also provides
+stand-alone <a class="reference external" href="http://ampl.com/products/solvers/open-source/#cbc">Cbc
+executables</a> that can be
+used with (or without) AMPL. Julia also provides a wide range of
+<a class="reference external" href="https://github.com/JuliaBinaryWrappers/Cbc_jll.jl/releases">binaries</a>.
+Alternatives include your favorite package manager, as detailed below.</p>
+<p>Cbc is developed by John Forrest, now retired from IBM Research, and others.
+The project is currently managed by John Forrest, <a class="reference external" href="http://github.com/tkralphs">Ted
+Ralphs</a>, <a class="reference external" href="https://github.com/svigerske">Stefan
+Vigerske</a>, <a class="reference external" href="https://github.com/h-g-s">Haroldo Gambini
+Santos</a>, and the rest of the Cbc team.</p>
+<p>Cbc is written in C++ and is released as open source under the <a class="reference external" href="http://www.opensource.org/licenses/EPL-2.0">Eclipse Public License 2.0</a>.</p>
+<p>It is distributed under the auspices of the <a class="reference external" href="https://www.coin-or.org">COIN-OR Foundation</a></p>
+<p>The Cbc website is <a class="github reference external" href="https://github.com/coin-or/Cbc">coin-or/Cbc</a>.</p>
+<section id="cite">
+<h2>CITE<a class="headerlink" href="#cite" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://zenodo.org/badge/latestdoi/173509563"><img alt="DOI" src="https://zenodo.org/badge/173509563.svg" /></a></p>
+</section>
+<section id="current-build-status">
+<h2>CURRENT BUILD STATUS<a class="headerlink" href="#current-build-status" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://travis-ci.com/coin-or/Cbc"><img alt="Build Status" src="https://travis-ci.com/coin-or/Cbc.svg?branch=master" /></a></p>
+<p><a class="reference external" href="https://ci.appveyor.com/project/coin-or/Cbc/branch/master"><img alt="Build status" src="https://ci.appveyor.com/api/projects/status/chribnemsgm9th0x/branch/master?svg=true" /></a></p>
+</section>
+<section id="download">
+<h2>DOWNLOAD<a class="headerlink" href="#download" title="Link to this heading">#</a></h2>
+<section id="docker-image">
+<h3>Docker image<a class="headerlink" href="#docker-image" title="Link to this heading">#</a></h3>
+<p>There is a Docker image that provides Cbc, as well as other projects
+in the <a class="reference external" href="https://github.com/coin-or/COIN-OR-OptimizationSuite">COIN-OR Optimization
+Suite</a> <a class="reference external" href="https://hub.docker.com/repository/docker/coinor/coin-or-optimization-suite">here</a></p>
+</section>
+<section id="binaries">
+<h3>Binaries<a class="headerlink" href="#binaries" title="Link to this heading">#</a></h3>
+<p>Binaries for most platforms are available as part of <a class="reference external" href="https://bintray.com/coin-or/download/Cbc">Cbc</a>.</p>
+<ul class="simple">
+<li><p><em>Linux</em>: On Debian/Ubuntu, Cbc is available in the package <code class="docutils literal notranslate"><span class="pre">coinor-cbc</span></code> and can be installed with apt. On Fedora, Cbc is available in the package <code class="docutils literal notranslate"><span class="pre">coin-or-Cbc</span></code>.</p></li>
+<li><p><em>Windows</em>: The easiest way to get Cbc on Windows is to download from <em><a class="reference external" href="https://bintray.com/coin-or/download/Cbc">Bintray</a></em>.</p></li>
+<li><p><em>Mac OS X</em>: The easiest way to get Cbc on Mac OS X is through <a class="reference external" href="https://brew.sh">Homebrew</a>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">tap</span> <span class="pre">coin-or-tools/coinor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">coin-or-tools/coinor/cbc</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Due to license incompatibilities, pre-compiled binaries lack some functionality.
+If binaries are not available for your platform for the latest version and you would like to request them to be built and posted, feel free to let us know on the mailing list.</p>
+<p><em>Source code</em> can be obtained either by</p>
+<ul class="simple">
+<li><p>Downloading a snapshot of the source code for the latest release version of Cbc from the
+<a class="reference external" href="https://github.com/coin-or/Cbc/releases">releases</a> page.</p></li>
+<li><p>Cloning this repository from <a class="reference external" href="https://github.com/coin-or/Cbc">Github</a> or</p></li>
+<li><p>Using the <a class="reference external" href="https://github.com/coin-or/coinbrew">coinbrew</a> script to get the project and all dependencies (recommended, see below).</p></li>
+</ul>
+<p>Below is a quick start guide for building on common platforms. More detailed
+build instructions are
+<a class="reference external" href="https://coin-or.github.io/user_introduction.html">here</a>.</p>
+</section>
+</section>
+<section id="building-from-source">
+<h2>BUILDING from source<a class="headerlink" href="#building-from-source" title="Link to this heading">#</a></h2>
+<p>The quick start assumes you are in a bash shell.</p>
+<section id="using-coinbrew">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code><a class="headerlink" href="#using-coinbrew" title="Link to this heading">#</a></h3>
+<p>To build CoinUtils from source, obtain the <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code> script, do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">coin</span><span class="o">-</span><span class="ow">or</span><span class="o">/</span><span class="n">coinbrew</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">coinbrew</span>
+<span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">coinbrew</span>
+<span class="o">./</span><span class="n">coinbrew</span> <span class="n">fetch</span> <span class="n">Cbc</span><span class="nd">@master</span>
+<span class="o">./</span><span class="n">coinbrew</span> <span class="n">build</span> <span class="n">Cbc</span>
+</pre></div>
+</div>
+<p>For more detailed instructions on coinbrew, see <a class="reference external" href="https://coin-or.github.io/coinbrew">https://coin-or.github.io/coinbrew</a>.
+The <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code> script will fetch the additional projects specified in the Dependencies section of <a class="reference internal" href="#.coin-or/config.yml"><span class="xref myst">config.yml</span></a>.</p>
+</section>
+<section id="without-coinbrew-expert-users">
+<h3>Without <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code> (Expert users)<a class="headerlink" href="#without-coinbrew-expert-users" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Download the source code, e.g., by cloning the git repo <a class="github reference external" href="https://github.com/coin-or/Cbc">coin-or/Cbc</a></p></li>
+<li><p>Download and install the source code for the dependencies listed in <a class="reference internal" href="#.coin-or/config.yml"><span class="xref myst">config.yml</span></a></p></li>
+<li><p>Build the code as follows (make sure to set PKG_CONFIG_PTH to install directory for dependencies).</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">configure</span> <span class="o">-</span><span class="n">C</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">test</span>
+<span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+</section>
+<section id="with-microsoft-visual-studio">
+<h3>With Microsoft Visual Studio<a class="headerlink" href="#with-microsoft-visual-studio" title="Link to this heading">#</a></h3>
+<p>For Microsoft Visual C++ users, there are project files for version 10
+available in the <code class="docutils literal notranslate"><span class="pre">MSVisualStudio</span></code> directory. First, obtain the source code
+using either a Windows git client or download a snapshot. In MSVC++ Version
+10, open the solution file (this should be converted to whatever version of
+MSVC+ you are using) and build the Cbc project. The code should build out of
+the box with default settings.</p>
+<p>It is also possible to build Cbc with the Visual Studio compiler from the
+command line using the procedure for Unix-like environments, using the Msys2
+shell or CYGWIN. This is the recommended and best-supported way of building
+Cbc in Windows from source. To do so, make sure the <code class="docutils literal notranslate"><span class="pre">cl</span></code> compiler is in your
+path and add <code class="docutils literal notranslate"><span class="pre">--enable-msvc</span> <span class="pre">to</span> <span class="pre">build</span> <span class="pre">command</span> <span class="pre">of</span> </code>coinbrew`.</p>
+<p>If you want to build a <em>parallel version</em> of CBC using Visual Studio you can
+following instructions: (thanks to Tobias Stengel and Alexis Guigue).</p>
+<p>Assumptions:</p>
+<ul class="simple">
+<li><p>A VS solution with all necessary projects (libCbc, libClp, libCbcSolver,
+libCgl, libCoinUtils, libOsi, libOsiCbc, libOsiClp). The project files can
+be found inside the <code class="docutils literal notranslate"><span class="pre">MSVisualStudio</span></code> folders.</p></li>
+</ul>
+<p>Steps (based on VS 2013):</p>
+<ol class="arabic">
+<li><p>for each of the lib* projects do:
+add <code class="docutils literal notranslate"><span class="pre">CBC_THREAD</span></code> under Properties -&gt; Configuration Properties -&gt; C/C++ -&gt;
+Preprocessor -&gt; Preprocessor Definitions (a subset of the lib* projects may
+be sufficient, but it doesn’t hurt to do it for all)</p></li>
+<li><p>Link against a pthreads library.
+<a class="reference external" href="https://www.sourceware.org/pthreads-win32/">PThreadsWin32</a> works (even in
+64 bits systems) and is distributed under the LGPL. If you decide to use
+the precompiled binaries: both pthreadVC2 and pthreadVS2 seem to work.
+Otherwise: third party VS project files for pthreads4win can be found on
+github.</p>
+<p>Note: If you use C++/Cli, make sure that no callback (eventHandlers, custom
+cut generators, custom heuristics, …) contains managed code. Otherwise
+your code will crash at runtime with AssembyNotFoundExceptions inside the
+native threads created by Cbc. Even if not, problems with the GC are
+likely.</p>
+</li>
+<li><p>If you link statically against pthreads4win, you have to define
+PTW32_STATIC_LIB when building your program/Cbc (e.g. via Properties -&gt;
+C/C++/Preprocessor -&gt; Preprocessor Definitions) AND - only if you build
+pthreads yourself - when building pthreads. Linking pthreads dynamically
+works without additional preprocessor definitions.</p></li>
+<li><p>pass <code class="docutils literal notranslate"><span class="pre">-threads</span> <span class="pre">yourNumber</span></code> to <code class="docutils literal notranslate"><span class="pre">CbcMain1</span></code></p></li>
+</ol>
+</section>
+</section>
+<section id="doxygen-documentation">
+<h2>Doxygen Documentation<a class="headerlink" href="#doxygen-documentation" title="Link to this heading">#</a></h2>
+<p>If you have <code class="docutils literal notranslate"><span class="pre">Doxygen</span></code> available, you can build a HTML documentation by typing</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">doxygen-docs</span></code></p>
+<p>in the build directory. If Cbc was built via <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code>, then the build
+directory will be <code class="docutils literal notranslate"><span class="pre">./build/Cbc/master</span></code> by default. The doxygen documentation main file
+is found at <code class="docutils literal notranslate"><span class="pre">&lt;build-dir&gt;/doxydoc/html/index.html</span></code>.</p>
+<p>If you don’t have <code class="docutils literal notranslate"><span class="pre">doxygen</span></code> installed locally, you can use also find the
+documentation <a class="reference external" href="http://coin-or.github.io/Cbc/Doxygen">here</a>.</p>
+</section>
+<section id="documentation">
+<h2>DOCUMENTATION<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://coin-or.github.io/Cbc">User’s Guide</a> (from 2005)</p></li>
+<li><p><a class="reference external" href="http://www.coin-or.org/Doxygen/Cbc/hierarchy.html">Doxygen generated documentation</a></p></li>
+<li><p>Source code <a class="reference internal" href="#examples"><span class="xref myst">examples</span></a></p></li>
+<li><p><a class="reference external" href="https://projects.coin-or.org/CoinBinary/export/1059/OptimizationSuite/trunk/Installer/files/doc/cbcCommandLine.pdf">Cbc command-line guide</a></p></li>
+</ul>
+</section>
+<section id="project-links">
+<h2>Project Links<a class="headerlink" href="#project-links" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.coin-or.org/">COIN-OR Initiative</a></p></li>
+<li><p><a class="reference external" href="https://github.com/coin-or/Cbc/discussions">Mailing list</a></p></li>
+<li><p><a class="reference external" href="https://github.com/coin-or/Cbc/issues/new">Report a bug</a></p></li>
+<li><p><a class="reference external" href="http://coin-or.github.io/Cbc/Doxygen">Doxygen-generated html documentation</a></p></li>
+</ul>
+</section>
+<section id="changelog">
+<h2>CHANGELOG<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>Release 3.0 (in preparation)</p>
+<ul class="simple">
+<li><p>Added possibility for incomplete MIP start files.
+The filename suffix indicates which values Cbc should choose for
+missing variables (see change r2549)</p></li>
+<li><p>Larger renovation of the build system and a changed directory structure.
+As a consequence, a monolithic build of Cbc, which builds Cbc with
+all its dependencies in one run of configure and make is no longer
+possible. Dependencies should now be build and installed before
+building Cbc.</p>
+<ul>
+<li><p>Removed svn:externals. Dependencies (CoinUtils, Osi, Clp, Cgl, etc)
+now need to be build and installed in advance, either manually or
+by using coinbrew.</p></li>
+<li><p>When using a GCC-compatible compiler, the Cbc interface
+functions are now declared with <code class="docutils literal notranslate"><span class="pre">visibility(default)</span></code>-attribute,
+thus building Cbc with <code class="docutils literal notranslate"><span class="pre">-fvisibility=hidden</span></code> still produces a
+usable library.</p></li>
+<li><p>When using a MSVC-compatible compiler, Cbc interface functions
+are now declared with <code class="docutils literal notranslate"><span class="pre">dllimport</span></code>-attribute, so that a Cbc C++ DLL
+can be used.</p></li>
+<li><p>Under Windows/Msys2, DLLs are now build by default.</p></li>
+<li><p>Cygwin and MSys1 are no longer supported.</p></li>
+<li><p>pkg-config is now mandatory. On Windows, make sure to use a
+pkg-config version that produces Unix-style paths.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_addlibs</span></code> files have been removed, pkg-config should be used instead.</p></li>
+<li><p>Script <code class="docutils literal notranslate"><span class="pre">compile</span></code> is now used to wrap around calls of cl/icl/ifort
+and translate GCC-style compiler flags to MSVC style.</p></li>
+<li><p>Header files are now installed in the better named
+<code class="docutils literal notranslate"><span class="pre">/include/coin-or</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/include/coin</span></code>.</p></li>
+<li><p>The default for <code class="docutils literal notranslate"><span class="pre">--prefix</span></code> is no longer the build directory, but
+the autotools-default, probably <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--enable-debug</span></code> does not imply <code class="docutils literal notranslate"><span class="pre">--disable-shared</span></code> anymore.</p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">--enable-debug-cbc</span></code>, use <code class="docutils literal notranslate"><span class="pre">--enable-debug</span></code> instead.</p></li>
+<li><p>Removed configure variables OPT/DBG_C/CXXFLAGS. Use C/CXXFLAGS instead.</p></li>
+<li><p>Silent build output is now enabled by default, use configure
+flag <code class="docutils literal notranslate"><span class="pre">--disable-silent-rules</span></code> or call make with <code class="docutils literal notranslate"><span class="pre">V=1</span></code> to disable.</p></li>
+<li><p>Also for static builds, PIC objects are now generated by default,
+use <code class="docutils literal notranslate"><span class="pre">--without-pic</span></code> to disable.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--with-*-incdir</span></code> and <code class="docutils literal notranslate"><span class="pre">--with-*-lib</span></code> configure flags have been
+replaced by corresponding <code class="docutils literal notranslate"><span class="pre">--with-*-cflags</span></code> and <code class="docutils literal notranslate"><span class="pre">--with-*-lflags</span></code>
+flags. Note that the include directories need to be specified
+via <code class="docutils literal notranslate"><span class="pre">-I&lt;dir&gt;</span></code> in <code class="docutils literal notranslate"><span class="pre">--with-*-cflags</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--enable-cbc-parallel</span></code> is now enabled by default if a pthread library
+is found. Use <code class="docutils literal notranslate"><span class="pre">--disable-cbc-parallel</span></code> to disable.</p></li>
+<li><p>Added a conflict graph infrastructure and conflict-based routines:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CglCliqueStrengthening</span></code>: preprocessing routine applied on set packing constraints.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CglBKClique</span></code>: clique cut separator based on an improved version of Bron-Kerbosch algorithm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CglOddWheel</span></code>: odd-cycle separator with a lifting routine.</p></li>
+<li><p>New parameters in the command line:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cgraph</span></code>: sets the use of conflict graph-based routines (CglBKClique, CglOddWheel and CliqueStrengthening) - “off”=turns these routines off, “on”=turns these routines on, “clq”=turns these routines off and enables the cut separator of CglClique - default=”on”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clqstr</span></code>: sets the use of the preprocessing routine based on clique strengthening (CglCliqueStrengthening) - “off”=turn off this routine, “before”=perform clique strengthening before initial solve, “after”=perform clique strengthening after initial solve - default=”after”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clique</span></code>: sets the use of CglBKClique (on, root, ifmove, forceOn, onglobal) - default=”ifmove”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bkpivot</span></code>: pivoting strategy used by Bron-Kerbosch algorithm in CglBKClique - 0=off, 1=random, 2=degree, 3=weight, 4=modified degree, 5=modified weight, 6=modified degree + modified weight - default=3.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bkmaxcalls</span></code>: maximum number of recursive calls that can be made by Bron-Kerbosch algorithm in CglBKClique - default=1000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bkclqext</span></code>: strategy used to extend violated cliques found by CglBKClique - 0=off, 1=random, 2=degree, 3=modified degree, 4=reduced cost(inversely proportional), 5=reduced cost(inversely proportional) + modified degree - default = 4.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oddwheel</span></code>: sets the use of CglOddWheel (on, root, ifmove, forceOn, onglobal) - default = ifmove.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oddwext</span></code>: strategy used to search for wheel centers for the cuts found by CglOddWheel - 0=off, 1=one variable, 2=clique - default=2.</p></li>
+</ul>
+</li>
+<li><p>CglClique was replaced by CglBKClique as the default clique separator in CbcSolver.cpp.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Release 2.10.5</p>
+<ul class="simple">
+<li><p>revert fix that stopped Clp when timelimit reached, as that lead to
+all cleanup solves afterwards to stop without proper finishing and
+giving wrong results</p></li>
+</ul>
+</li>
+<li><p>Release 2.10.4</p>
+<ul class="simple">
+<li><p>Allow .lp files to be read from stdin.</p></li>
+<li><p>Fix parsing of optional arguments to AMPL interface.</p></li>
+<li><p>More bugfixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.10.3</p>
+<ul class="simple">
+<li><p>Improve performance of some primal heuristics, incl. feasibility pump, by making integer slacks continuous</p></li>
+<li><p>Added additional timelimit checks</p></li>
+<li><p>Fixed initialization of Cbc_clone result</p></li>
+<li><p>Additional bugfixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.10.2</p>
+<ul class="simple">
+<li><p>Bugfixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.10.1</p>
+<ul class="simple">
+<li><p>Fixed Cbc_clone in C interface</p></li>
+<li><p>Fixed CbcMain1() call in examples/driver3.cpp</p></li>
+<li><p>Fixed possible issue with MIPstart if presolve added variables</p></li>
+<li><p>More minor bugfixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.10.0</p>
+<ul class="simple">
+<li><p>Improved handling of SOS, starting point, and symmetries</p></li>
+<li><p>Improved performance of primal heuristics regarding the handling of
+implicit integer variables</p></li>
+<li><p>Mini-B&amp;B is now disabled when solving with multiple threads</p></li>
+<li><p>Changed default value for zero half cuts parameter from off to ifmove</p></li>
+<li><p>Added CbcModel::postProcessedSolver() to obtained LP after presolve</p></li>
+<li><p>New option <code class="docutils literal notranslate"><span class="pre">PrepNames</span></code> to indicate whether column names should be
+kept in the pre-processed model</p></li>
+<li><p>New option <code class="docutils literal notranslate"><span class="pre">sosPrioritize</span></code> to determine how to prioritize SOS</p></li>
+<li><p>Added new event <code class="docutils literal notranslate"><span class="pre">generatedCuts</span></code></p></li>
+<li><p>CbcSolver can now read compressed .lp files (GZIP, BZIP2)</p></li>
+<li><p>New functions in the C interface: Cbc_readLp, Cbc_writeLp,
+Cbc_addCol, Cbc_addRow, Cbc_getNumIntegers, Cbc_bestSolution,
+Cbc_getObjValue, Cbc_getRowNz, Cbc_getRowIndices, Cbc_getRowCoeffs,
+Cbc_getRowRHS, Cbc_getRowSense, Cbc_getColNz, Cbc_getColIndices,
+Cbc_getColCoeffs, Cbc_getReducedCost, Cbc_numberSavedSolutions,
+Cbc_savedSolution, Cbc_savedSolutionObj, Cbc_setMIPStart,
+Cbc_setMIPStartI, Cbc_addCutCallback, Osi_getNumCols, Osi_getColName,
+Osi_getColLower, Osi_getColUpper, Osi_isInteger, Osi_getNumRows,
+Osi_getRowNz, Osi_getRowIndices, Osi_getRowCoeffs, Osi_getRowRHS,
+Osi_getRowSense, Osi_getColSolution, OsiCuts_addRowCut,
+Cbc_getAllowableGap, Cbc_setAllowableGap, Cbc_getAllowableFractionGap,
+Cbc_setAllowableFractionGap, Cbc_getAllowablePercentageGap,
+Cbc_setAllowablePercentageGap, Cbc_getCutoff, Cbc_setCutoff,
+Cbc_getMaximumNodes, Cbc_setMaximumNodes, Cbc_getMaximumSolutions,
+Cbc_setMaximumSolutions, Cbc_getLogLevel, Cbc_setLogLevel,
+Cbc_getMaximumSeconds, Cbc_setMaximumSeconds</p></li>
+<li><p>New action <code class="docutils literal notranslate"><span class="pre">guess</span></code> checks properties of the model to decide the best
+parameters for solving the LP relaxation.</p></li>
+<li><p>New example inc.cpp to illustrate solution callback</p></li>
+<li><p>New example driver5.cpp to illustrate user-defined branching rule</p></li>
+<li><p>New example clpdriver.cpp to illustrate use of ClpEventHandler</p></li>
+<li><p>Added support for using OsiHiGHS with CbcGeneric</p></li>
+<li><p>Added MSVC 14 project files</p></li>
+<li><p>Bugfixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.10</p>
+<ul class="simple">
+<li><p>Fix a numerical issue</p></li>
+<li><p>Fix some memory leaks</p></li>
+<li><p>Fix issue when root node is obviously infeasible</p></li>
+<li><p>Performance improvements for mini-B&amp;B</p></li>
+<li><p>Fix name of bound in final message</p></li>
+<li><p>Fix names in preprocessed problem</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.9</p>
+<ul class="simple">
+<li><p>Fixes for SOS2</p></li>
+<li><p>Updates to mipstart</p></li>
+<li><p>Switching to new build system</p></li>
+<li><p>Updates for CI</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.8</p>
+<ul class="simple">
+<li><p>Update to most current releases of dependencies</p></li>
+<li><p>Small bug fixes</p></li>
+<li><p>Add support for automatic build and test with Travis and Appveyor</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.7</p>
+<ul class="simple">
+<li><p>Small bug fixes</p></li>
+<li><p>Option to switch to line buffered output</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.6</p>
+<ul class="simple">
+<li><p>Small bug fixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.5</p>
+<ul class="simple">
+<li><p>Small bug fixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.4</p>
+<ul class="simple">
+<li><p>Small fixes for stability</p></li>
+<li><p>Fixes for Doygen documentation generation</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.3</p>
+<ul class="simple">
+<li><p>Minor bug fixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.2</p>
+<ul class="simple">
+<li><p>Fix for proper installation with <code class="docutils literal notranslate"><span class="pre">DESTDIR</span></code></p></li>
+</ul>
+</li>
+<li><p>Release 2.9.1</p>
+<ul class="simple">
+<li><p>Fix for dependency linking</p></li>
+<li><p>Minor bug fixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.9.0</p>
+<ul class="simple">
+<li><p>Introduced specialized branching methods for dealing with “big Ms”.</p></li>
+<li><p>Introduced new methods for dealing with symmetry (requires installation of <a class="reference external" href="http://pallini.di.uniroma1.it/">nauty</a>)</p></li>
+<li><p>Introduction of conflict cuts (off by default, turn on with <code class="docutils literal notranslate"><span class="pre">-constraint</span> <span class="pre">conflict</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.13</p>
+<ul class="simple">
+<li><p>Improved message handling</p></li>
+<li><p>Miscellaneous bug fixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.12</p>
+<ul class="simple">
+<li><p>Update for dependencies.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.11</p>
+<ul class="simple">
+<li><p>Major overhaul of C interface</p></li>
+<li><p>Fixes to SOS</p></li>
+<li><p>Miscellaneous bug fixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.10</p>
+<ul class="simple">
+<li><p>More changes related to thread safety.</p></li>
+<li><p>Fix bug in build system with Visual Studio compiler.</p></li>
+<li><p>Miscellaneous bug fixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.9</p>
+<ul class="simple">
+<li><p>Attempt to make Cbc thread safe.</p></li>
+<li><p>Add parallel examples.</p></li>
+<li><p>Add CbcSolverUsefulInfo.</p></li>
+<li><p>Bug fixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.8</p>
+<ul class="simple">
+<li><p>Added example to show how to use Cbc with installed libraries in MSVC++</p></li>
+<li><p>Fixed inconsistency in addition of libCbcSolver to dependencies in
+}.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.7</p>
+<ul class="simple">
+<li><p>Changed so that Doxygen builds LaTex</p></li>
+<li><p>Fixes for build system</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.6</p>
+<ul class="simple">
+<li><p>Added option to explicitly link dependencies to comply with packaging
+requirements on Fedora and Debian, as well as allow building of MinGW
+DLLs.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.5</p>
+<ul class="simple">
+<li><p>Minor fixes to build system</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.4</p>
+<ul class="simple">
+<li><p>Small bug fixes</p></li>
+<li><p>Upgrades to build system</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.3:</p>
+<ul class="simple">
+<li><p>Fix for handling SOS.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.2:</p>
+<ul class="simple">
+<li><p>Fixed recognition of Glpk source in main configure.</p></li>
+<li><p>Minor bug fixes in CoinUtils, Clp, and Cbc.</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.1:</p>
+<ul class="simple">
+<li><p>Minor bug fixes</p></li>
+</ul>
+</li>
+<li><p>Release 2.8.0:</p>
+<ul>
+<li><p>Introduced new secondaryStatus 8 to indicate that solving stopped due to
+an iteration limit.</p></li>
+<li><p>Solution pool is now accessible via the command line and the CbcMain*
+interface.</p></li>
+<li><p>New mipstart option to read an initial feasible solution from a file.
+Only values for discrete variables need to be provided.</p></li>
+<li><p>Added Proximity Search heuristic by Fischetti and Monaci (off by
+default): The simplest way to switch it on using stand-alone version is
+<code class="docutils literal notranslate"><span class="pre">-proximity</span> <span class="pre">on</span></code>.</p>
+<p>Proximity Search is the new “No-Neighborhood Search” 0-1 MIP refinement
+heuristic recently proposed by Fischetti and Monaci (2012). The idea is
+to define a sub-MIP without additional constraints but with a modified
+objective function intended to attract the search in the proximity of the
+incumbent. The approach works well for 0-1 MIPs whose solution landscape
+is not too irregular (meaning the there is reasonable probability of
+finding an improved solution by flipping a small number of binary
+variables), in particular when it is applied to the first heuristic
+solutions found at the root node.</p>
+</li>
+<li><p>An implementation of Zero-Half-Cuts by Alberto Caprara is now available.
+By default, these cuts are off. To use add to your command line
+-zerohalfCuts root (or other options) or just -zero. So far, they may
+help only on a small subset of problems and may need some tuning.</p>
+<p>The implementation of these cuts is described in G. Andreello, A.
+Caprara, and M. Fischetti “Embedding Cuts in a Branch and Cut Framework:
+a Computational Study with {0,1/2}-Cuts” INFORMS Journal on Computing
+19(2), 229-238, 2007 <a class="reference external" href="http://dx.doi.org/10.1287/ijoc.1050.0162">http://dx.doi.org/10.1287/ijoc.1050.0162</a></p>
+</li>
+<li><p>An alternative implementation of a reduce and split cut generator by
+Giacomo Nannicini is now available. By default, these cuts are off. To
+use add to your command line -reduce2AndSplitCuts root (or other
+options).</p>
+<p>The implementation of these cuts is described in G. Cornuejols and G.
+Nannicini “Practical strategies for generating rank-1 split cuts in
+mixed-integer linear programming” Mathematical Programming Computation
+3(4), 281-318, 2011 <a class="reference external" href="http://dx.doi.org/10.1007/s12532-011-0028-6">http://dx.doi.org/10.1007/s12532-011-0028-6</a></p>
+</li>
+<li><p>An alternative robust implementation of a Gomory cut generator by Giacomo
+Nannicini is now available. By default, these cuts are off. To use add to
+your command line -GMI root (or other options).</p>
+<p>The implementation of these cuts is described in G. Cornuejols, F.
+Margot, and G. Nannicini “On the safety of Gomory cut generators”
+<a class="reference external" href="http://faculty.sutd.edu.sg/~nannicini/index.php?page=publications">http://faculty.sutd.edu.sg/~nannicini/index.php?page=publications</a></p>
+</li>
+<li><p>To encourage the use of some of the more exotic/expensive cut generators
+a parameter -slowcutpasses has been added. The idea is that the code does
+these cuts just a few times - less than the more usual cuts. The default
+is 10. The cut generators identified by “may be slow” at present are just
+Lift and project and ReduceAndSplit (both versions).</p></li>
+<li><p>Allow initialization of random seed by user. Pseudo-random numbers are
+used in Cbc and Clp. In Clp they are used to break ties in degenerate
+problems, while in Cbc heuristics such as the Feasibility Pump use them
+to decide whether to round up or down. So if a different pseudo-random
+seed is given to Clp then you may get a different continuous optimum and
+so different cuts and heuristic solutions. This can be switched on by
+setting randomSeed for Clp and/or randomCbcSeed for Cbc. The special
+value of 0 tells code to use time of day for initial seed.</p></li>
+<li><p>Building on this idea, Andrea Lodi, Matteo Fischetti, Michele Monaci,
+Domenico Salvagnin, Yuji Shinano, and Andrea Tramontani suggest that this
+idea be improved by running at the root node with multiple copies of
+solver, each with its own different seed and then passing in the
+solutions and cuts so that the main solver has a richer set of solutions
+and possibly stronger cuts. This is switched on by setting
+-multipleRootPasses. These can also be done in parallel.</p></li>
+<li><p>Few changes to presolve for special variables and badly scaled problems
+(in CoinUtils).</p></li>
+<li><p>New option -extraVariables <number> which switches on a trivial
+re-formulation that introduces extra integer variables to group together
+variables with same cost.</p></li>
+<li><p>For some problems, cut generators and general branching work better if
+the problem would be infeasible if the cost is too high. If the new
+option -constraintFromCutoff is set, the objective function is added as a
+constraint which rhs is set to the current cutoff value (objective value
+of best known solution).</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.8:</p>
+<ul class="simple">
+<li><p>Change message when LP simplex iteration limit is hit from “Exiting on
+maximum nodes” to “Exiting on maximum number of iterations”</p></li>
+<li><p>Fix for using overlapping SOS.</p></li>
+<li><p>Fixes in buildsystem.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.7:</p>
+<ul class="simple">
+<li><p>Fix to report interruption on user event if SIGINT is received by
+CbcSolver. model-&gt;status() should now be 5 if this event happened. Added
+method CbcModel::sayEventHappened() to make cbc stop due to an ‘user
+event’.</p></li>
+<li><p>Other minor fixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.6:</p>
+<ul class="simple">
+<li><p>Fixes to build system.</p></li>
+<li><p>Other minor fixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.5:</p>
+<ul class="simple">
+<li><p>Fixes to get AMPL interface working again.</p></li>
+<li><p>More fixes to MSVC++ files.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.4:</p>
+<ul class="simple">
+<li><p>Minor bugfixes.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.3:</p>
+<ul class="simple">
+<li><p>Minor bugfixes.</p></li>
+<li><p>Fixes to MSVC++ files.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.2:</p>
+<ul class="simple">
+<li><p>Allow row/column names for GMPL models.</p></li>
+<li><p>Added CbcModel::haveMultiThreadSupport() to indicate whether Cbc library
+has been compiled with multithread support.</p></li>
+<li><p>Added CbcModel::waitingForMiniBranchAndBound() to indicate whether
+sub-MIP heuristic is currently running.</p></li>
+<li><p>Cbc shell should work with readline if configured with
+<code class="docutils literal notranslate"><span class="pre">--enable-gnu-packages</span></code>.</p></li>
+<li><p>Support for compressed input files (.gz, .bz2) is now enabled by default.</p></li>
+<li><p>Fix problems with relative gap tolerance &gt; 100% and further bugs.</p></li>
+<li><p>Fixes for MSVC++ Version 9 files.</p></li>
+<li><p>Minor fixes in buildsystem; update to BuildTools 0.7.1.</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.1:</p>
+<ul class="simple">
+<li><p>Fixes to MSVC++ files</p></li>
+</ul>
+</li>
+<li><p>Release 2.7.0:</p>
+<ul class="simple">
+<li><p>License has been changed to the EPL.</p></li>
+<li><p>Support for MSVC++ version 10 added.</p></li>
+<li><p>Support for BuildTools version 0.7 to incorporate recent enhancements,
+including proper library versioning in Linux, prohibiting installation of
+private headers, etc.</p></li>
+<li><p>Updated externals to new stable versions of dependent projects.</p></li>
+<li><p>Improvements to heuristics.</p></li>
+<li><p>New options for cut generation.</p></li>
+<li><p>Improved reporting of results.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite">CITE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-build-status">CURRENT BUILD STATUS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">DOWNLOAD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image">Docker image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binaries">Binaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-source">BUILDING from source</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-coinbrew">Using <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#without-coinbrew-expert-users">Without <code class="docutils literal notranslate"><span class="pre">coinbrew</span></code> (Expert users)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#with-microsoft-visual-studio">With Microsoft Visual Studio</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#doxygen-documentation">Doxygen Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation">DOCUMENTATION</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-links">Project Links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changelog">CHANGELOG</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
