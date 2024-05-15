@@ -4,6 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: Intro_To_Optimization.ipynb
